@@ -1,0 +1,5 @@
+# The `global_queue_equitability` builder method and the RuntimeMetrics used by
+# these benchmarks are gated behind `--cfg tokio_unstable`.
+[build]
+rustflags = ["--cfg", "tokio_unstable"]
+rustdocflags = ["--cfg", "tokio_unstable"]

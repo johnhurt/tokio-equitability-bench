@@ -1,0 +1,25 @@
+[package]
+name = "global-queue-equitability-bench"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Benchmarks for a proposed tokio multi-thread runtime `global_queue_equitability` tuning knob"
+
+# This benchmark exercises an unmerged tokio feature, so it depends on a fork
+# branch rather than a crates.io release. Build with `--cfg tokio_unstable`
+# (already set in `.cargo/config.toml`).
+[dependencies]
+tokio = { git = "https://github.com/johnhurt/tokio", branch = "global-queue-equitability", features = ["full"] }
+
+[[bin]]
+name = "flood"
+path = "src/bin/flood.rs"
+
+[[bin]]
+name = "file_server"
+path = "src/bin/file_server.rs"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

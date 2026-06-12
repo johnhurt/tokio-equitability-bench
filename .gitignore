@@ -1,0 +1,3 @@
+/target
+# Live sweep output at the repo root; the committed data set lives in data/.
+/*.jsonl
